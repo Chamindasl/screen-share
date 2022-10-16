@@ -1,4 +1,4 @@
-package chams.open;
+package chams.open.screenshare;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
