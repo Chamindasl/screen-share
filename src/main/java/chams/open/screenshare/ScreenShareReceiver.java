@@ -1,7 +1,5 @@
 package chams.open.screenshare;
 
-import chams.open.old.ImagePanel;
-
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
