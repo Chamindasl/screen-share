@@ -20,9 +20,9 @@ public class SenderThread implements Runnable{
         objectOutputStream = new ObjectOutputStream(receiverThread.getSocket().getOutputStream());
     }
 
-    public SenderThread(Socket cSoc) throws IOException {
+    public SenderThread(Socket cSoc, ObjectInputStream in) throws IOException {
         socket = cSoc;
-        in = new ObjectInputStream(socket.getInputStream());
+        this.in = in;
 
     }
 
@@ -30,19 +30,25 @@ public class SenderThread implements Runnable{
     @Override
     public void run() {
 
+        int tCount = 0;
         while (true) {
             try {
 
                 TDO tdo = (TDO) in.readObject();
                 objectOutputStream.writeObject(tdo);
                 objectOutputStream.flush();
-
+                tCount = 0;
             } catch (Exception ex) {
-                ex.printStackTrace();
+                tCount++;
+                System.out.println(tCount + "c " + ex.getMessage());
+                if(tCount>5) {
+                    break;
+                }
             }
 
         }
-
+        System.out.println("closing server thread");
+        throw new RuntimeException("lets crash");
     }
 
 }

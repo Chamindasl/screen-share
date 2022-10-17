@@ -6,7 +6,6 @@ public class ReceiverThread {
 
     private Socket socket;
 
-
     public Socket getSocket() {
         return socket;
     }
