@@ -11,7 +11,7 @@ public class AUnitTestSender {
 
     public static void main(String[] args) {
 //        client("localhost", 8090);
-        int port = 8080;
+        int port = 80;
 
         try {
             port = Integer.parseInt(args[0]);
