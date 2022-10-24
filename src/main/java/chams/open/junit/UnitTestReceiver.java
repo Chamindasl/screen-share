@@ -11,7 +11,7 @@ import java.net.Socket;
 public class UnitTestReceiver {
     public static void main(String[] args) {
 //        client("localhost", 8090);
-        client("4.227.147.186", 8090);
+        client("4.227.147.186", 80);
 
     }
 

@@ -8,7 +8,7 @@ public class AUnitTestServer {
 
     public static void main(String[] args) throws IOException {
         while (true) {
-            ServerSocket socket = new ServerSocket(8090);
+            ServerSocket socket = new ServerSocket(80);
             SenderThread senderThread = null;
             ReceiverThread receiverThread = null;
             int tCon = 0;

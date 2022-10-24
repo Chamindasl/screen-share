@@ -11,7 +11,7 @@ public class AUnitTestSender {
 
     public static void main(String[] args) {
 //        client("localhost", 8090);
-        client("4.227.147.186", 8090);
+        client("4.227.147.186", 80);
     }
 
     private static void client(String serverAddr, int port) {
