@@ -10,7 +10,6 @@ import java.util.Date;
 public class AUnitTestSender {
 
     public static void main(String[] args) {
-//        client("localhost", 8090);
         int port = 80;
 
         try {
@@ -19,6 +18,7 @@ public class AUnitTestSender {
 
         }
 
+//        client("localhost", port);
         client("4.227.147.186", port);
     }
 
