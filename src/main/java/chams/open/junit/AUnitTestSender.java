@@ -1,4 +1,4 @@
-package chams.open.screenshare;
+package chams.open.junit;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -7,11 +7,11 @@ import java.io.*;
 import java.net.Socket;
 import java.util.Date;
 
-public class ScreenShareSender {
+public class AUnitTestSender {
 
     public static void main(String[] args) {
-        client("localhost", 8090);
-//        client("4.227.147.186", 8090);
+//        client("localhost", 8090);
+        client("4.227.147.186", 8090);
     }
 
     private static void client(String serverAddr, int port) {

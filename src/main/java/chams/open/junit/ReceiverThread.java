@@ -1,4 +1,4 @@
-package chams.open.screenshare;
+package chams.open.junit;
 
 import java.net.Socket;
 

@@ -1,18 +1,17 @@
-package chams.open.screenshare;
+package chams.open.junit;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
-import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 
-public class ScreenShareReceiver {
+public class UnitTestReceiver {
     public static void main(String[] args) {
-        client("localhost", 8090);
-//        client("4.227.147.186", 8090);
+//        client("localhost", 8090);
+        client("4.227.147.186", 8090);
 
     }
 

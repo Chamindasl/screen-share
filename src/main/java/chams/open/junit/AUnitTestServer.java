@@ -1,10 +1,10 @@
-package chams.open.screenshare;
+package chams.open.junit;
 
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class ScreenShareServer {
+public class AUnitTestServer {
 
     public static void main(String[] args) throws IOException {
         while (true) {
