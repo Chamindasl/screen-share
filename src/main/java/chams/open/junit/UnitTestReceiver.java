@@ -11,7 +11,15 @@ import java.net.Socket;
 public class UnitTestReceiver {
     public static void main(String[] args) {
 //        client("localhost", 8090);
-        client("4.227.147.186", 80);
+        int port = 80;
+
+        try {
+            port = Integer.parseInt(args[0]);
+        } catch (Exception ex) {
+
+        }
+
+        client("4.227.147.186", port);
 
     }
 

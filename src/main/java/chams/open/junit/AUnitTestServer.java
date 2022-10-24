@@ -7,8 +7,16 @@ import java.net.Socket;
 public class AUnitTestServer {
 
     public static void main(String[] args) throws IOException {
+        int port = 80;
+
+        try {
+            port = Integer.parseInt(args[0]);
+        } catch (Exception ex) {
+
+        }
+
         while (true) {
-            ServerSocket socket = new ServerSocket(80);
+            ServerSocket socket = new ServerSocket(port);
             SenderThread senderThread = null;
             ReceiverThread receiverThread = null;
             int tCon = 0;
