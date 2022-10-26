@@ -19,7 +19,7 @@ public class AUnitTestSender {
         }
 
 //        client("localhost", port);
-        client("4.227.147.186", port);
+        client("20.157.19.91", port);
     }
 
     private static void client(String serverAddr, int port) {
