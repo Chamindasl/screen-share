@@ -11,19 +11,26 @@ public class JUnitRunner {
 
     public static void main(String[] args){
 
-        try {
-            long now = new Date().getTime() / 1000 / 60 * 1000 * 60;
-            long now10 = now + 10_000;
-            Thread.sleep(now10 - now);
-            Robot r = new Robot();
-            String pa = "C:\\Users\\camarasinghe\\OneDrive - Microsoft\\Desktop\\Del\\";
-            while (true) {
-                write(r, pa + "Employee.class");
-                write(r, pa + "Address.class");
-                write(r, pa + "Department.class");
-            }
-        } catch (Exception ex) {
+        while (true) {
+            try {
+                long now = new Date().getTime() / 1000 / 60 * 1000 * 60;
+                long now10 = now + 10_000;
+                Thread.sleep(now10 - now);
+                Robot r = new Robot();
+                String pa = "C:\\Users\\camarasinghe\\OneDrive - Microsoft\\Desktop\\Del\\";
+                while (true) {
+                    write(r, pa + "Employee.class");
+                    write(r, pa + "Address.class");
+                    write(r, pa + "Department.class");
+                }
+            } catch (Exception ex) {
 
+            }
+            try {
+                Thread.sleep(1000*60);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 
