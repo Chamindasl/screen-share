@@ -2,6 +2,7 @@ package chams.open.junit;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -94,10 +95,53 @@ public class Test extends JDialog {
                 File dst = new File(dstP + pathname + ".jpg");
                 img = ImageIO.read(dst);
             }
-            l1.setIcon(new ImageIcon(img));
+//            l1.setIcon(new ImageIcon(scale(img)));
+            l1.setIcon(new ImageIcon(resize(img, 1600)));
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static BufferedImage scale(BufferedImage src)
+    {
+        int w = (int)(src.getWidth() * .8);
+        int h = (int)(src.getHeight() * .8);
+        BufferedImage img =
+                new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB);
+        int x, y;
+        int ww = src.getWidth();
+        int hh = src.getHeight();
+        int[] ys = new int[h];
+        for (y = 0; y < h; y++)
+            ys[y] = y * hh / h;
+        for (x = 0; x < w; x++) {
+            int newX = x * ww / w;
+            for (y = 0; y < h; y++) {
+                int col = src.getRGB(newX, ys[y]);
+                img.setRGB(x, y, col);
+            }
+        }
+        return img;
+    }
+
+    private static BufferedImage resize(BufferedImage src, int targetSize) {
+        if (targetSize <= 0) {
+            return src; //this can't be resized
+        }
+        int targetWidth = targetSize;
+        int targetHeight = targetSize;
+        float ratio = ((float) src.getHeight() / (float) src.getWidth());
+        if (ratio <= 1) { //square or landscape-oriented image
+            targetHeight = (int) Math.ceil((float) targetWidth * ratio);
+        } else { //portrait image
+            targetWidth = Math.round((float) targetHeight / ratio);
+        }
+        BufferedImage bi = new BufferedImage(targetWidth, targetHeight, src.getTransparency() == Transparency.OPAQUE ? BufferedImage.TYPE_INT_RGB : BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2d = bi.createGraphics();
+        g2d.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR); //produces a balanced resizing (fast and decent quality)
+        g2d.drawImage(src, 0, 0, targetWidth, targetHeight, null);
+        g2d.dispose();
+        return bi;
     }
 
     private void onCancel() {
