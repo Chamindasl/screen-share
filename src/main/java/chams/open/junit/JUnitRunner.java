@@ -14,7 +14,8 @@ public class JUnitRunner {
         while (true) {
             try {
                 Robot r = new Robot();
-                String pa = "C:\\Users\\camarasinghe\\OneDrive - Microsoft\\Desktop\\Del\\";
+//                String pa = "C:\\Users\\camarasinghe\\OneDrive - Microsoft\\Desktop\\Del\\";
+                String pa = "C:\\Users\\A00267496\\OneDrive - Athlone Institute Of Technology\\del\\";
                 while (true) {
                     long now = new Date().getTime() / 1000 / 60 * 1000 * 60;
                     write(r, pa + "Employee"+ now +".class");
