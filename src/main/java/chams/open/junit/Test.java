@@ -8,6 +8,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
+import java.util.Date;
 
 public class Test extends JDialog {
     private JPanel contentPane;
@@ -66,15 +67,19 @@ public class Test extends JDialog {
 
     private void onOK() {
         // add your code here
-        show("Employee");
+        long now = (new Date().getTime() / 1000 / 20 * 1000 * 20) - 20_000;
+        show("Employee"+ now, now);
 
 
 //        dispose();
     }
 
-    private void show(String pathname) {
+    private void show(String pathname, long now) {
+        Date d = new Date(now);
+        closeButton.setText(d.toString());
         ImagePanel imp = new ImagePanel();
         BufferedImage img = null;
+//        String src = "C:\\Users\\camarasinghe\\OneDrive - Athlone Institute Of Technology\\del\\";
         String src = "C:\\Users\\camarasinghe\\OneDrive - Microsoft\\Desktop\\Del\\";
         String dstP = "C:\\repo\\t\\";
         try {
@@ -84,7 +89,7 @@ public class Test extends JDialog {
                 File dst = new File( dstP +pathname + ".jpg");
                 Files.copy(input.toPath(), dst.toPath(), StandardCopyOption.REPLACE_EXISTING);
                 img = ImageIO.read(input);
-                lock.setSelected(false);
+//                lock.setSelected(false);
             } else {
                 File dst = new File(dstP + pathname + ".jpg");
                 img = ImageIO.read(dst);
@@ -97,12 +102,16 @@ public class Test extends JDialog {
 
     private void onCancel() {
         // add your code here if necessary
-        show("Address");
+        long now = (new Date().getTime() / 1000 / 20 * 1000 * 20) - 40_000;
+        show("Employee"+ now, now);
+
     }
 
     private void onDep() {
         // add your code here if necessary
-        show("Department");
+        // add your code here if necessary
+        long now = (new Date().getTime() / 1000 / 20 * 1000 * 20) - 60_000;
+        show("Employee"+ now, now);
     }
     public static void main(String[] args) {
         Test dialog = new Test();
