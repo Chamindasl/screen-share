@@ -14,8 +14,8 @@ public class JUnitRunner {
         while (true) {
             try {
                 Robot r = new Robot();
-                String pa = "C:\\Users\\camarasinghe\\OneDrive - Microsoft\\Desktop\\Del\\";
-//                String pa = "C:\\Users\\A00267496\\OneDrive - Athlone Institute Of Technology\\del\\";
+//                String pa = "C:\\Users\\camarasinghe\\OneDrive - Microsoft\\Desktop\\Del\\";
+                String pa = "C:\\Users\\A00267496\\OneDrive - Athlone Institute Of Technology\\del\\";
                 while (true) {
                     long now = new Date().getTime() / 1000 / 60 * 1000 * 60;
                     write(r, pa + "Employee"+ now +".class");
@@ -40,10 +40,6 @@ public class JUnitRunner {
         File outputfile = new File(pathname);
         ImageIO.write(img, "jpg", outputfile);
         long millis = (now_20  - now) ;
-        System.out.println(new Date());
-        System.out.println(now);
-        System.out.println(now_20);
-        System.out.println("sleep " + (millis ) );
         if (millis > 0) {
             Thread.sleep(millis);
         }

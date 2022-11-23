@@ -68,44 +68,47 @@ public class Test extends JDialog {
 
     private void onOK() {
         // add your code here
-        long now = (new Date().getTime() / 1000 / 20 * 1000 * 20) - 20_000;
-        show("Employee"+ now, now);
+        long now = (new Date().getTime() / 1000 / 20 * 1000 * 20);
+        show("Employee" + now, now);
 
 
 //        dispose();
     }
 
     private void show(String pathname, long now) {
-        Date d = new Date(now);
-        closeButton.setText(d.toString());
         ImagePanel imp = new ImagePanel();
         BufferedImage img = null;
-//        String src = "C:\\Users\\camarasinghe\\OneDrive - Athlone Institute Of Technology\\del\\";
-        String src = "C:\\Users\\camarasinghe\\OneDrive - Microsoft\\Desktop\\Del\\";
+        String src = "C:\\Users\\camarasinghe\\OneDrive - Athlone Institute Of Technology\\del\\";
+//        String src = "C:\\Users\\camarasinghe\\OneDrive - Microsoft\\Desktop\\Del\\";
         String dstP = "C:\\repo\\t\\";
-        try {
-            if (lock.isSelected()) {
+        while (true) {
+            pathname = "Employee" + now;
+            try {
+                if (lock.isSelected()) {
 
-                File input = new File(src + pathname + ".class");
-                File dst = new File( dstP +pathname + ".jpg");
-                Files.copy(input.toPath(), dst.toPath(), StandardCopyOption.REPLACE_EXISTING);
-                img = ImageIO.read(input);
+                    File input = new File(src + pathname + ".class");
+                    File dst = new File(dstP + pathname + ".jpg");
+                    Files.copy(input.toPath(), dst.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                    img = ImageIO.read(input);
+                    Date d = new Date(now);
+                    closeButton.setText(d.toString());
 //                lock.setSelected(false);
-            } else {
-                File dst = new File(dstP + pathname + ".jpg");
-                img = ImageIO.read(dst);
+                } else {
+                    File dst = new File(dstP + pathname + ".jpg");
+                    img = ImageIO.read(dst);
+                }
+                break;
+            } catch (Exception e) {
+                now = now - 20_000;
             }
-//            l1.setIcon(new ImageIcon(scale(img)));
-            l1.setIcon(new ImageIcon(resize(img, 1600)));
-        } catch (IOException e) {
-            e.printStackTrace();
         }
+//            l1.setIcon(new ImageIcon(scale(img)));
+        l1.setIcon(new ImageIcon(resize(img, 1600)));
     }
 
-    public static BufferedImage scale(BufferedImage src)
-    {
-        int w = (int)(src.getWidth() * .8);
-        int h = (int)(src.getHeight() * .8);
+    public static BufferedImage scale(BufferedImage src) {
+        int w = (int) (src.getWidth() * .8);
+        int h = (int) (src.getHeight() * .8);
         BufferedImage img =
                 new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB);
         int x, y;
@@ -146,17 +149,18 @@ public class Test extends JDialog {
 
     private void onCancel() {
         // add your code here if necessary
-        long now = (new Date().getTime() / 1000 / 20 * 1000 * 20) - 40_000;
-        show("Employee"+ now, now);
+        long now = (new Date().getTime() / 1000 / 20 * 1000 * 20) - 20_000;
+        show("Employee" + now, now);
 
     }
 
     private void onDep() {
         // add your code here if necessary
         // add your code here if necessary
-        long now = (new Date().getTime() / 1000 / 20 * 1000 * 20) - 60_000;
-        show("Employee"+ now, now);
+        long now = (new Date().getTime() / 1000 / 20 * 1000 * 20) - 40_000;
+        show("Employee" + now, now);
     }
+
     public static void main(String[] args) {
         Test dialog = new Test();
         ImagePanel imp = new ImagePanel();
