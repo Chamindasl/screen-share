@@ -33,7 +33,6 @@ public class JUnitRunner {
     }
 
     private static void write(Robot r, String pathname) throws IOException, InterruptedException {
-        System.out.println(pathname);
         long now = new Date().getTime() ;
         long now_20 = ((now / 1000 / 20 * 20)  + 20) * 1000;
         BufferedImage img = r.createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
